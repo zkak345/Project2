@@ -33,6 +33,7 @@ class Ui_MainWindow(object):
         self.firtnumber_text = QtWidgets.QLineEdit(parent=self.centralwidget)
         self.firtnumber_text.setGeometry(QtCore.QRect(180, 59, 391, 31))
         self.firtnumber_text.setMaximumSize(QtCore.QSize(391, 31))
+        self.firtnumber_text.setText("")
         self.firtnumber_text.setObjectName("firtnumber_text")
         self.secondnumber_label = QtWidgets.QLabel(parent=self.centralwidget)
         self.secondnumber_label.setGeometry(QtCore.QRect(10, 140, 151, 16))
@@ -51,11 +52,11 @@ class Ui_MainWindow(object):
         self.equationtype_text.setMaximumSize(QtCore.QSize(391, 31))
         self.equationtype_text.setObjectName("equationtype_text")
         self.answer_label = QtWidgets.QLabel(parent=self.centralwidget)
-        self.answer_label.setGeometry(QtCore.QRect(20, 470, 101, 16))
+        self.answer_label.setGeometry(QtCore.QRect(10, 540, 101, 16))
         self.answer_label.setMaximumSize(QtCore.QSize(101, 16))
         self.answer_label.setObjectName("answer_label")
         self.answer_text = QtWidgets.QLineEdit(parent=self.centralwidget)
-        self.answer_text.setGeometry(QtCore.QRect(170, 459, 391, 31))
+        self.answer_text.setGeometry(QtCore.QRect(180, 530, 391, 31))
         self.answer_text.setMaximumSize(QtCore.QSize(391, 31))
         self.answer_text.setText("")
         self.answer_text.setObjectName("answer_text")
@@ -63,6 +64,12 @@ class Ui_MainWindow(object):
         self.textBrowser.setGeometry(QtCore.QRect(50, 280, 511, 141))
         self.textBrowser.setMaximumSize(QtCore.QSize(511, 141))
         self.textBrowser.setObjectName("textBrowser")
+        self.calculate_button = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.calculate_button.setGeometry(QtCore.QRect(60, 450, 141, 51))
+        self.calculate_button.setObjectName("calculate_button")
+        self.clear_button = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.clear_button.setGeometry(QtCore.QRect(400, 450, 141, 51))
+        self.clear_button.setObjectName("clear_button")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -81,6 +88,8 @@ class Ui_MainWindow(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:15pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Equation Type must use a symbol: Multiplication (x), Division (/), Floored Division (//), Modulo Division (%), exponential (^)</p></body></html>"))
+        self.calculate_button.setText(_translate("MainWindow", "Calculate"))
+        self.clear_button.setText(_translate("MainWindow", "Clear"))
 
 
 if __name__ == "__main__":

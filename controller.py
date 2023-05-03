@@ -8,30 +8,37 @@ class Controller(QMainWindow, Ui_MainWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.setupUi(self)
-        self.submit_button.clicked.connect(lambda: self.submit())
+        self.calculate_button.clicked.connect(lambda: self.submit())
         self.clear_button.clicked.connect(lambda: self.clear())
 
     def submit(self):
         for i in range(1):
             try:
-                num1 = int(self.firtnumber_text())
-                num2 = int(self.secondnumber_text())
-                equation = str(self.equationtype_text())
+                num1 = int(self.firtnumber_text.text())
+                num2 = int(self.secondnumber_text.text())
+                equation = str(self.equationtype_text.text())
                 total = 0
                 if equation == '+':
                     total = num1 + num2
+                    self.answer_text.setText(str(total))
                 elif equation == '-':
                     total = num1 - num2
+                    self.answer_text.setText(str(total))
                 elif equation == 'x':
                     total = num1 * num2
+                    self.answer_text.setText(str(total))
                 elif equation == '/':
                     total = num1 / num2
+                    self.answer_text.setText(f'{total:.2f}')
                 elif equation == '//':
                     total = num1 / num2
+                    self.answer_text.setText(f'{total:.2f}')
                 elif equation == '^':
                     total = num1 ** num2
+                    self.answer_text.setText(str(total))
                 elif equation == '%':
                     total = num1 % num2
+                    self.answer_text.setText(str(total))
                 else:
                     break
             except ValueError:
@@ -39,7 +46,6 @@ class Controller(QMainWindow, Ui_MainWindow):
                 break
             except ZeroDivisionError:
                 self.answer_text.setText('Cannot divide by zero')
-            self.answer_text.setText(total)
 
     def clear(self):
         self.firtnumber_text.setText('')
