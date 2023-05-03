@@ -40,6 +40,7 @@ class Controller(QMainWindow, Ui_MainWindow):
                     total = num1 % num2
                     self.answer_text.setText(str(total))
                 else:
+                    self.answer_text.setText('Please use a proper equation')
                     break
             except ValueError:
                 self.clear()
