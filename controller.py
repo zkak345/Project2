@@ -40,19 +40,20 @@ class Controller(QMainWindow, Ui_MainWindow):
                     total = num1 % num2
                     self.answer_text.setText(str(total))
                 else:
-                    self.answer_text.setText('Please use a proper equation')
+                    self.textBrowser.setText('Please use a proper equation')
                     break
             except ValueError:
-                self.clear()
+                self.textBrowser.setText('Please use a proper input')
                 break
             except ZeroDivisionError:
-                self.answer_text.setText('Cannot divide by zero')
+                self.textBrowser.setText('Cannot divide by zero')
 
     def clear(self):
         self.firtnumber_text.setText('')
         self.secondnumber_text.setText('')
         self.answer_text.setText('')
         self.equationtype_text.setText('')
+        self.textBrowser.setText('Equation Type must use a symbol: Addition (+), Subtraction (-), Multiplication (x), Division (/), Floored Division (//), Modulo Division (%), exponential (^)')
 
 
 
