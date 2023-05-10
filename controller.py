@@ -5,8 +5,8 @@ QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)
 QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps, True)
 
 class Controller(QMainWindow, Ui_MainWindow):
-    Num = 0
-    Num2 = 0
+    Num = ''
+    Num2 = ''
     Sign = ''
     Total = 0
     def __init__(self, *args, **kwargs):
@@ -27,77 +27,140 @@ class Controller(QMainWindow, Ui_MainWindow):
         self.equal_button.clicked.connect(lambda: self.total())
 
     def one(self):
-        if Controller.Num == 0:
-            Controller.Num = 1
+        if len(Controller.Num) >= 1 and Controller.Sign == '':
+            Controller.Num += '1'
+            self.answer_text.setText(f'{Controller.Num}')
+        elif Controller.Num == '':
+            Controller.Num = '1'
             self.answer_text.setText(f'{Controller.Num}')
         else:
-            Controller.Num2 = 1
-            self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
+            if len(Controller.Num2) >= 1:
+                Controller.Num2 += '1'
+                self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
+            else:
+                Controller.Num2 = '1'
+                self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def two(self):
-        if Controller.Num == 0:
-            Controller.Num = 2
+        if len(Controller.Num) >= 1 and Controller.Sign == '':
+            Controller.Num += '2'
+            self.answer_text.setText(f'{Controller.Num}')
+        elif Controller.Num == '':
+            Controller.Num = '2'
             self.answer_text.setText(f'{Controller.Num}')
         else:
-            Controller.Num2 = 2
-            self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
+            if len(Controller.Num2) >= 1:
+                Controller.Num2 += '2'
+                self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
+            else:
+                Controller.Num2 = '2'
+                self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
 
     def three(self):
-        if Controller.Num == 0:
-            Controller.Num = 3
+        if len(Controller.Num) >= 1 and Controller.Sign == '':
+            Controller.Num += '3'
+            self.answer_text.setText(f'{Controller.Num}')
+        elif Controller.Num == '':
+            Controller.Num = '3'
             self.answer_text.setText(f'{Controller.Num}')
         else:
-            Controller.Num2 = 3
-            self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
+            if len(Controller.Num2) >= 1:
+                Controller.Num2 += '3'
+                self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
+            else:
+                Controller.Num2 = '3'
+                self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def four(self):
-        if Controller.Num == 0:
-            Controller.Num = 4
+        if len(Controller.Num) >= 1 and Controller.Sign == '':
+            Controller.Num += '4'
+            self.answer_text.setText(f'{Controller.Num}')
+        elif Controller.Num == '':
+            Controller.Num = '4'
             self.answer_text.setText(f'{Controller.Num}')
         else:
-            Controller.Num2 = 4
-            self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
+            if len(Controller.Num2) >= 1:
+                Controller.Num2 += '4'
+                self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
+            else:
+                Controller.Num2 = '4'
+                self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def five(self):
-        if Controller.Num == 0:
-            Controller.Num = 5
+        if len(Controller.Num) >= 1 and Controller.Sign == '':
+            Controller.Num += '5'
+            self.answer_text.setText(f'{Controller.Num}')
+        elif Controller.Num == '':
+            Controller.Num = '5'
             self.answer_text.setText(f'{Controller.Num}')
         else:
-            Controller.Num2 = 5
-            self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
+            if len(Controller.Num2) >= 1:
+                Controller.Num2 += '5'
+                self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
+            else:
+                Controller.Num2 = '5'
+                self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def six(self):
-        if Controller.Num == 0:
-            Controller.Num = 6
+        if len(Controller.Num) >= 1 and Controller.Sign == '':
+            Controller.Num += '6'
+            self.answer_text.setText(f'{Controller.Num}')
+        elif Controller.Num == '':
+            Controller.Num = '6'
             self.answer_text.setText(f'{Controller.Num}')
         else:
-            Controller.Num2 = 6
-            self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
+            if len(Controller.Num2) >= 1:
+                Controller.Num2 += '6'
+                self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
+            else:
+                Controller.Num2 = '6'
+                self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def seven(self):
-        if Controller.Num == 0:
-            Controller.Num = 7
+        if len(Controller.Num) >= 1 and Controller.Sign == '':
+            Controller.Num += '7'
+            self.answer_text.setText(f'{Controller.Num}')
+        elif Controller.Num == '':
+            Controller.Num = '7'
             self.answer_text.setText(f'{Controller.Num}')
         else:
-            Controller.Num2 = 7
-            self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
+            if len(Controller.Num2) >= 1:
+                Controller.Num2 += '7'
+                self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
+            else:
+                Controller.Num2 = '7'
+                self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def eight(self):
-        if Controller.Num == 0:
-            Controller.Num = 8
+        if len(Controller.Num) >= 1 and Controller.Sign == '':
+            Controller.Num += '8'
+            self.answer_text.setText(f'{Controller.Num}')
+        elif Controller.Num == '':
+            Controller.Num = '8'
             self.answer_text.setText(f'{Controller.Num}')
         else:
-            Controller.Num2 = 8
-            self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
+            if len(Controller.Num2) >= 1:
+                Controller.Num2 += '8'
+                self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
+            else:
+                Controller.Num2 = '8'
+                self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def nine(self):
-        if Controller.Num == 0:
-            Controller.Num = 9
+        if len(Controller.Num) >= 1 and Controller.Sign == '':
+            Controller.Num += '9'
+            self.answer_text.setText(f'{Controller.Num}')
+        elif Controller.Num == '':
+            Controller.Num = '9'
             self.answer_text.setText(f'{Controller.Num}')
         else:
-            Controller.Num2 = 9
-            self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
+            if len(Controller.Num2) >= 1:
+                Controller.Num2 += '9'
+                self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
+            else:
+                Controller.Num2 = '9'
+                self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def zero(self):
         if Controller.Num == 0:
@@ -112,14 +175,18 @@ class Controller(QMainWindow, Ui_MainWindow):
 
 
     def plus(self):
-        Controller.Sign = '+'
-        self.answer_text.setText(f'{Controller.Num} +')
+        if Controller.Total == 0:
+            Controller.Sign = '+'
+            self.answer_text.setText(f'{Controller.Num} +')
+        else:
+            Controller.Num = str(Controller.Total)
+            self.answer_text.setText(f'{Controller.Num} +')
 
     def total(self):
         if Controller.Sign == '+':
-            Controller.Total = Controller.Num + Controller.Num2
-            total = Controller.Total
+            Controller.Total = int(Controller.Num) + int(Controller.Num2)
             self.answer_text.setText(f'{Controller.Total}')
+            Controller.Num2 = ''
 
 
 
@@ -163,8 +230,8 @@ class Controller(QMainWindow, Ui_MainWindow):
 
     def clear(self):
         self.answer_text.setText('')
-        Controller.Num = 0
-        Controller.Num2 = 0
+        Controller.Num = ''
+        Controller.Num2 = ''
         Controller.Sign = ''
         Controller.Total = 0
 
