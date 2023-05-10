@@ -13,7 +13,6 @@ class Controller(QMainWindow, Ui_MainWindow):
         super().__init__(*args, **kwargs)
         self.setupUi(self)
         self.clear_button.clicked.connect(lambda: self.clear())
-        self.plus_button.clicked.connect(lambda: self.plus())
         self.one_button.clicked.connect(lambda: self.one())
         self.two_button.clicked.connect(lambda: self.two())
         self.three_button.clicked.connect(lambda: self.three())
@@ -25,6 +24,12 @@ class Controller(QMainWindow, Ui_MainWindow):
         self.nine_button.clicked.connect(lambda: self.nine())
         self.zero_button.clicked.connect(lambda: self.zero())
         self.equal_button.clicked.connect(lambda: self.total())
+        self.plus_button.clicked.connect(lambda: self.plus())
+        self.minus_button.clicked.connect(lambda: self.minus())
+        self.multiply_button.clicked.connect(lambda: self.multiply())
+        self.divide_button.clicked.connect(lambda: self.divide())
+        self.floored_button.clicked.connect(lambda: self.floored())
+        self.modulo_button.clicked.connect(lambda: self.modulo())
 
     def one(self):
         if len(Controller.Num) >= 1 and Controller.Sign == '':
@@ -182,51 +187,67 @@ class Controller(QMainWindow, Ui_MainWindow):
             Controller.Num = str(Controller.Total)
             self.answer_text.setText(f'{Controller.Num} +')
 
+    def minus(self):
+        if Controller.Total == 0:
+            Controller.Sign = '-'
+            self.answer_text.setText(f'{Controller.Num} -')
+        else:
+            Controller.Num = str(Controller.Total)
+            self.answer_text.setText(f'{Controller.Num} -')
+
+
+    def multiply(self):
+        if Controller.Total == 0:
+            Controller.Sign = 'x'
+            self.answer_text.setText(f'{Controller.Num} x')
+        else:
+            Controller.Num = str(Controller.Total)
+            self.answer_text.setText(f'{Controller.Num} x')
+
+    def divide(self):
+        if Controller.Total == 0:
+            Controller.Sign = '/'
+            self.answer_text.setText(f'{Controller.Num} /')
+        else:
+            Controller.Num = str(Controller.Total)
+            self.answer_text.setText(f'{Controller.Num} /')
+
+    def floored(self):
+        if Controller.Total == 0:
+            Controller.Sign = '//'
+            self.answer_text.setText(f'{Controller.Num} //')
+        else:
+            Controller.Num = str(Controller.Total)
+            self.answer_text.setText(f'{Controller.Num} //')
+
+    def modulo(self):
+        if Controller.Total == 0:
+            Controller.Sign = '%'
+            self.answer_text.setText(f'{Controller.Num} %')
+        else:
+            Controller.Num = str(Controller.Total)
+            self.answer_text.setText(f'{Controller.Num} %')
+
+
+
+
+
+
     def total(self):
         if Controller.Sign == '+':
             Controller.Total = int(Controller.Num) + int(Controller.Num2)
-            self.answer_text.setText(f'{Controller.Total}')
-            Controller.Num2 = ''
-
-
-
-
-    def equal(self):
-        for i in range(1):
-            try:
-                num1 = int(self.firtnumber_text.text())
-                num2 = int(self.secondnumber_text.text())
-                equation = str(self.equationtype_text.text())
-                total = 0
-                if equation == '+':
-                    total = num1 + num2
-                    self.answer_text.setText(str(total))
-                elif equation == '-':
-                    total = num1 - num2
-                    self.answer_text.setText(str(total))
-                elif equation == 'x':
-                    total = num1 * num2
-                    self.answer_text.setText(str(total))
-                elif equation == '/':
-                    total = num1 / num2
-                    self.answer_text.setText(f'{total:.2f}')
-                elif equation == '//':
-                    total = num1 / num2
-                    self.answer_text.setText(f'{total:.2f}')
-                elif equation == '^':
-                    total = num1 ** num2
-                    self.answer_text.setText(str(total))
-                elif equation == '%':
-                    total = num1 % num2
-                    self.answer_text.setText(str(total))
-                else:
-                    self.textBrowser.setText('Please use a proper equation')
-                    break
-            except ValueError:
-                self.textBrowser.setText('Please use a proper input')
-                break
-            except ZeroDivisionError:
-                self.textBrowser.setText('Cannot divide by zero')
+        elif Controller.Sign == '-':
+            Controller.Total = int(Controller.Num) - int(Controller.Num2)
+        elif Controller.Sign == 'x':
+            Controller.Total = int(Controller.Num) * int(Controller.Num2)
+        elif Controller.Sign == '/':
+            Controller.Total = int(Controller.Num) / int(Controller.Num2)
+        elif Controller.Sign == '//':
+            Controller.Total = int(Controller.Num) // int(Controller.Num2)
+        elif Controller.Sign == '%':
+            Controller.Total = int(Controller.Num) % int(Controller.Num2)
+        self.answer_text.setText(f'{Controller.Total}')
+        Controller.Num2 = ''
 
     def clear(self):
         self.answer_text.setText('')
