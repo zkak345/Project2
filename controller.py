@@ -323,34 +323,37 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def total(self):
-        if Controller.Sign == '+':
-            Controller.Total = float(Controller.Num) + float(Controller.Num2)
-        elif Controller.Sign == '-':
-            Controller.Total = float(Controller.Num) - float(Controller.Num2)
-        elif Controller.Sign == 'x':
-            Controller.Total = float(Controller.Num) * float(Controller.Num2)
-        elif Controller.Sign == '/':
-            Controller.Total = float(Controller.Num) / float(Controller.Num2)
-        elif Controller.Sign == '//':
-            Controller.Total = float(Controller.Num) // float(Controller.Num2)
-        elif Controller.Sign == '%':
-            Controller.Total = float(Controller.Num) % float(Controller.Num2)
-        elif Controller.Sign == '^2':
-            Controller.Total = float(Controller.Num) ** 2
-        elif Controller.Sign == '^3':
-            Controller.Total = float(Controller.Num) ** 3
-        elif Controller.Sign == 'r':
-            Controller.Total = sqrt(float(Controller.Num))
-        elif Controller.Sign == 'c':
-            Controller.Total = float(Controller.Num) ** (1/3)
-        elif Controller.Sign == 'sin':
-            Controller.Total = sin(float(Controller.Num))
-        elif Controller.Sign == 'cos':
-            Controller.Total = cos(float(Controller.Num))
-        elif Controller.Sign == '1/':
-            Controller.Total = 1 / float(Controller.Num)
-        self.answer_text.setText(f'{Controller.Total}')
-        Controller.Num2 = ''
+        try:
+            if Controller.Sign == '+':
+                Controller.Total = float(Controller.Num) + float(Controller.Num2)
+            elif Controller.Sign == '-':
+                Controller.Total = float(Controller.Num) - float(Controller.Num2)
+            elif Controller.Sign == 'x':
+                Controller.Total = float(Controller.Num) * float(Controller.Num2)
+            elif Controller.Sign == '/':
+                Controller.Total = float(Controller.Num) / float(Controller.Num2)
+            elif Controller.Sign == '//':
+                Controller.Total = float(Controller.Num) // float(Controller.Num2)
+            elif Controller.Sign == '%':
+                Controller.Total = float(Controller.Num) % float(Controller.Num2)
+            elif Controller.Sign == '^2':
+                Controller.Total = float(Controller.Num) ** 2
+            elif Controller.Sign == '^3':
+                Controller.Total = float(Controller.Num) ** 3
+            elif Controller.Sign == 'r':
+                Controller.Total = sqrt(float(Controller.Num))
+            elif Controller.Sign == 'c':
+                Controller.Total = float(Controller.Num) ** (1/3)
+            elif Controller.Sign == 'sin':
+                Controller.Total = sin(float(Controller.Num))
+            elif Controller.Sign == 'cos':
+                Controller.Total = cos(float(Controller.Num))
+            elif Controller.Sign == '1/':
+                Controller.Total = 1 / float(Controller.Num)
+            self.answer_text.setText(f'{Controller.Total}')
+            Controller.Num2 = ''
+        except ZeroDivisionError:
+            self.answer_text.setText(f'Error cannot divide by zero')
 
     def clear(self):
         self.answer_text.setText('')
@@ -358,9 +361,3 @@ class Controller(QMainWindow, Ui_MainWindow):
         Controller.Num2 = ''
         Controller.Sign = ''
         Controller.Total = 0
-
-
-
-
-
-
