@@ -5,11 +5,13 @@ from math import *
 QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)
 QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps, True)
 
+
 class Controller(QMainWindow, Ui_MainWindow):
     Num = ''
     Num2 = ''
     Sign = ''
     Total = 0
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.setupUi(self)
@@ -38,7 +40,9 @@ class Controller(QMainWindow, Ui_MainWindow):
         self.sin_button.clicked.connect(lambda: self.sine())
         self.cos_button.clicked.connect(lambda: self.cosine())
         self.backspace_button.clicked.connect(lambda: self.backspace())
-
+        self.decimal_button.clicked.connect(lambda: self.decimal())
+        self.negative_button.clicked.connect(lambda: self.negative())
+        self.one_over_x_button.clicked.connect(lambda: self.one_over())
 
     def one(self):
         if len(Controller.Num) >= 1 and Controller.Sign == '':
@@ -69,7 +73,6 @@ class Controller(QMainWindow, Ui_MainWindow):
             else:
                 Controller.Num2 = '2'
                 self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
-
 
     def three(self):
         if len(Controller.Num) >= 1 and Controller.Sign == '':
@@ -191,10 +194,6 @@ class Controller(QMainWindow, Ui_MainWindow):
                 Controller.Num2 = '0'
                 self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
-
-
-
-
     def plus(self):
         if Controller.Total == 0:
             Controller.Sign = '+'
@@ -210,7 +209,6 @@ class Controller(QMainWindow, Ui_MainWindow):
         else:
             Controller.Num = str(Controller.Total)
             self.answer_text.setText(f'{Controller.Num} -')
-
 
     def multiply(self):
         if Controller.Total == 0:
@@ -260,7 +258,6 @@ class Controller(QMainWindow, Ui_MainWindow):
             Controller.Num = str(Controller.Total)
             self.answer_text.setText(f'{Controller.Num} ^3')
 
-
     def root(self):
         if Controller.Total == 0:
             Controller.Sign = 'r'
@@ -277,7 +274,6 @@ class Controller(QMainWindow, Ui_MainWindow):
             Controller.Num = str(Controller.Total)
             self.answer_text.setText(f'{Controller.Num} c')
 
-
     def sine(self):
         if Controller.Total == 0:
             Controller.Sign = 'sin'
@@ -293,6 +289,7 @@ class Controller(QMainWindow, Ui_MainWindow):
         else:
             Controller.Num = str(Controller.Total)
             self.answer_text.setText(f'cos({Controller.Num})')
+
     def backspace(self):
         if Controller.Sign == '':
             Controller.Num = Controller.Num[:-1]
@@ -301,34 +298,57 @@ class Controller(QMainWindow, Ui_MainWindow):
             Controller.Num2 = Controller.Num2[:-1]
             self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
+    def one_over(self):
+        if Controller.Total == 0:
+            Controller.Sign = '1/'
+            self.answer_text.setText(f'1/{Controller.Num}')
+        else:
+            Controller.Num = str(Controller.Total)
+            self.answer_text.setText(f'1/{Controller.Num}')
 
+    def decimal(self):
+        if Controller.Sign == '':
+            Controller.Num += '.'
+            self.answer_text.setText(f'{Controller.Num}')
+        else:
+            Controller.Num2 += '.'
+            self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
+    def negative(self):
+        if Controller.Sign == '':
+            Controller.Num += '-'
+            self.answer_text.setText(f'{Controller.Num}')
+        else:
+            Controller.Num2 += '-'
+            self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def total(self):
         if Controller.Sign == '+':
-            Controller.Total = int(Controller.Num) + int(Controller.Num2)
+            Controller.Total = float(Controller.Num) + float(Controller.Num2)
         elif Controller.Sign == '-':
-            Controller.Total = int(Controller.Num) - int(Controller.Num2)
+            Controller.Total = float(Controller.Num) - float(Controller.Num2)
         elif Controller.Sign == 'x':
-            Controller.Total = int(Controller.Num) * int(Controller.Num2)
+            Controller.Total = float(Controller.Num) * float(Controller.Num2)
         elif Controller.Sign == '/':
-            Controller.Total = int(Controller.Num) / int(Controller.Num2)
+            Controller.Total = float(Controller.Num) / float(Controller.Num2)
         elif Controller.Sign == '//':
-            Controller.Total = int(Controller.Num) // int(Controller.Num2)
+            Controller.Total = float(Controller.Num) // float(Controller.Num2)
         elif Controller.Sign == '%':
-            Controller.Total = int(Controller.Num) % int(Controller.Num2)
+            Controller.Total = float(Controller.Num) % float(Controller.Num2)
         elif Controller.Sign == '^2':
-            Controller.Total = int(Controller.Num) ** 2
+            Controller.Total = float(Controller.Num) ** 2
         elif Controller.Sign == '^3':
-            Controller.Total = int(Controller.Num) ** 3
+            Controller.Total = float(Controller.Num) ** 3
         elif Controller.Sign == 'r':
-            Controller.Total = sqrt(int(Controller.Num))
+            Controller.Total = sqrt(float(Controller.Num))
         elif Controller.Sign == 'c':
-            Controller.Total = int(Controller.Num) ** (1/3)
+            Controller.Total = float(Controller.Num) ** (1/3)
         elif Controller.Sign == 'sin':
-            Controller.Total = sin(int(Controller.Num))
-        elif Controller.Sign == 'sin':
-            Controller.Total = cos(int(Controller.Num))
+            Controller.Total = sin(float(Controller.Num))
+        elif Controller.Sign == 'cos':
+            Controller.Total = cos(float(Controller.Num))
+        elif Controller.Sign == '1/':
+            Controller.Total = 1 / float(Controller.Num)
         self.answer_text.setText(f'{Controller.Total}')
         Controller.Num2 = ''
 
