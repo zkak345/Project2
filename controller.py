@@ -7,12 +7,22 @@ QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps, True)
 
 
 class Controller(QMainWindow, Ui_MainWindow):
+    """
+
+    A Class representing the whole functionality of the code
+
+    """
+
     Num = ''
     Num2 = ''
     Sign = ''
     Total = 0
 
     def __init__(self, *args, **kwargs):
+        """
+        A constructor to create the initial state of the buttons on the calculator and when they are clicked
+
+        """
         super().__init__(*args, **kwargs)
         self.setupUi(self)
         self.clear_button.clicked.connect(lambda: self.clear())
@@ -45,6 +55,11 @@ class Controller(QMainWindow, Ui_MainWindow):
         self.one_over_x_button.clicked.connect(lambda: self.one_over())
 
     def one(self):
+        """
+        Functionality for number 1
+        :return: returns the number one on the calculator and accounts if 1 was used as two or three digits
+
+        """
         if len(Controller.Num) >= 1 and Controller.Sign == '':
             Controller.Num += '1'
             self.answer_text.setText(f'{Controller.Num}')
@@ -60,6 +75,11 @@ class Controller(QMainWindow, Ui_MainWindow):
                 self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def two(self):
+        """
+        Functionality for number 2
+        :return: returns the number 2 on the calculator and accounts if 2 was used as two or three digits
+
+        """
         if len(Controller.Num) >= 1 and Controller.Sign == '':
             Controller.Num += '2'
             self.answer_text.setText(f'{Controller.Num}')
@@ -75,6 +95,10 @@ class Controller(QMainWindow, Ui_MainWindow):
                 self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def three(self):
+        """
+        Functionality for Number 3
+        :return: returns the number 3 on the calculator and accounts if 3 was used as two or three digits
+        """
         if len(Controller.Num) >= 1 and Controller.Sign == '':
             Controller.Num += '3'
             self.answer_text.setText(f'{Controller.Num}')
@@ -90,6 +114,10 @@ class Controller(QMainWindow, Ui_MainWindow):
                 self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def four(self):
+        """
+        Functionality for Number 4
+        :return: returns the number 4 on the calculator and accounts if 4 was used as two or three digits
+        """
         if len(Controller.Num) >= 1 and Controller.Sign == '':
             Controller.Num += '4'
             self.answer_text.setText(f'{Controller.Num}')
@@ -105,6 +133,10 @@ class Controller(QMainWindow, Ui_MainWindow):
                 self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def five(self):
+        """
+        Functionality for Number 5
+        :return: returns the number 5 on the calculator and accounts if 5 was used as two or three digits
+        """
         if len(Controller.Num) >= 1 and Controller.Sign == '':
             Controller.Num += '5'
             self.answer_text.setText(f'{Controller.Num}')
@@ -120,6 +152,10 @@ class Controller(QMainWindow, Ui_MainWindow):
                 self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def six(self):
+        """
+        Functionality for Number 6
+        :return: returns the number 6 on the calculator and accounts if 6 was used as two or three digits
+        """
         if len(Controller.Num) >= 1 and Controller.Sign == '':
             Controller.Num += '6'
             self.answer_text.setText(f'{Controller.Num}')
@@ -135,6 +171,10 @@ class Controller(QMainWindow, Ui_MainWindow):
                 self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def seven(self):
+        """
+        Functionality for Number 7
+        :return: returns the number 7 on the calculator and accounts if 7 was used as two or three digits
+        """
         if len(Controller.Num) >= 1 and Controller.Sign == '':
             Controller.Num += '7'
             self.answer_text.setText(f'{Controller.Num}')
@@ -150,6 +190,10 @@ class Controller(QMainWindow, Ui_MainWindow):
                 self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def eight(self):
+        """
+        Functionality for Number 8
+        :return: returns the number 8 on the calculator and accounts if 8 was used as two or three digits
+        """
         if len(Controller.Num) >= 1 and Controller.Sign == '':
             Controller.Num += '8'
             self.answer_text.setText(f'{Controller.Num}')
@@ -165,6 +209,10 @@ class Controller(QMainWindow, Ui_MainWindow):
                 self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def nine(self):
+        """
+        Functionality for Number 9
+        :return: returns the number 9 on the calculator and accounts if 9 was used as two or three digits
+        """
         if len(Controller.Num) >= 1 and Controller.Sign == '':
             Controller.Num += '9'
             self.answer_text.setText(f'{Controller.Num}')
@@ -180,6 +228,10 @@ class Controller(QMainWindow, Ui_MainWindow):
                 self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def zero(self):
+        """
+        Functionality for 0
+        :return: returns the number 0 on the calculator and accounts if 0 was used as two or three digits
+        """
         if len(Controller.Num) >= 1 and Controller.Sign == '':
             Controller.Num += '0'
             self.answer_text.setText(f'{Controller.Num}')
@@ -195,6 +247,10 @@ class Controller(QMainWindow, Ui_MainWindow):
                 self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def plus(self):
+        """
+        Functionality for + sign
+        :return: Specifies to use a plus sign and account for addition after finding a total
+        """
         if Controller.Total == 0:
             Controller.Sign = '+'
             self.answer_text.setText(f'{Controller.Num} +')
@@ -204,6 +260,10 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.answer_text.setText(f'{Controller.Num} +')
 
     def minus(self):
+        """
+        Functionality for - sign
+        :return: Specifies to use a minus sign and account for subtraction after finding a total
+        """
         if Controller.Total == 0:
             Controller.Sign = '-'
             self.answer_text.setText(f'{Controller.Num} -')
@@ -213,6 +273,10 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.answer_text.setText(f'{Controller.Num} -')
 
     def multiply(self):
+        """
+        Functionality for x sign
+        :return: Specifies to use a multiplication sign and account for multiplication after finding a total
+        """
         if Controller.Total == 0:
             Controller.Sign = 'x'
             self.answer_text.setText(f'{Controller.Num} x')
@@ -222,6 +286,10 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.answer_text.setText(f'{Controller.Num} x')
 
     def divide(self):
+        """
+        Functionality for / sign
+        :return: Specifies to use a division sign and account for division after finding a total
+        """
         if Controller.Total == 0:
             Controller.Sign = '/'
             self.answer_text.setText(f'{Controller.Num} /')
@@ -231,6 +299,10 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.answer_text.setText(f'{Controller.Num} /')
 
     def floored(self):
+        """
+        Functionality for //
+        :return: Specifies to use a floored division sign and account for division after finding a total
+        """
         if Controller.Total == 0:
             Controller.Sign = '//'
             self.answer_text.setText(f'{Controller.Num} //')
@@ -240,6 +312,9 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.answer_text.setText(f'{Controller.Num} //')
 
     def modulo(self):
+        """
+        Functionality for %
+        """
         if Controller.Total == 0:
             Controller.Sign = '%'
             self.answer_text.setText(f'{Controller.Num} %')
@@ -249,6 +324,10 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.answer_text.setText(f'{Controller.Num} %')
 
     def square(self):
+        """
+        Functionaltiy for square function
+        :return: squared number
+        """
         if Controller.Total == 0:
             Controller.Sign = '^2'
             self.answer_text.setText(f'{Controller.Num} ^2')
@@ -258,6 +337,9 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.answer_text.setText(f'{Controller.Num} ^2')
 
     def cube(self):
+        """
+        functionality for cube function
+        """
         if Controller.Total == 0:
             Controller.Sign = '^3'
             self.answer_text.setText(f'{Controller.Num} ^3')
@@ -267,6 +349,9 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.answer_text.setText(f'{Controller.Num} ^3')
 
     def root(self):
+        """
+        Functionality for root
+        """
         if Controller.Total == 0:
             Controller.Sign = 'r'
             self.answer_text.setText(f'{Controller.Num} r')
@@ -276,6 +361,9 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.answer_text.setText(f'{Controller.Num} r')
 
     def cuberoot(self):
+        """
+        Functionality for cube root
+        """
         if Controller.Total == 0:
             Controller.Sign = 'c'
             self.answer_text.setText(f'{Controller.Num} c')
@@ -285,6 +373,10 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.answer_text.setText(f'{Controller.Num} c')
 
     def sine(self):
+        """
+
+        :return: sin functionality
+        """
         if Controller.Total == 0:
             Controller.Sign = 'sin'
             self.answer_text.setText(f'sin({Controller.Num})')
@@ -294,6 +386,10 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.answer_text.setText(f'sin({Controller.Num})')
 
     def cosine(self):
+        """
+
+        :return: cosine functionality
+        """
         if Controller.Total == 0:
             Controller.Sign = 'cosine'
             self.answer_text.setText(f'cos({Controller.Num})')
@@ -303,6 +399,10 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.answer_text.setText(f'cos({Controller.Num})')
 
     def backspace(self):
+        """
+
+        :return: Backspace functionality
+        """
         if Controller.Sign == '':
             Controller.Num = Controller.Num[:-1]
             self.answer_text.setText(f'{Controller.Num}')
@@ -311,6 +411,10 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def one_over(self):
+        """
+
+        :return: 1/ function
+        """
         if Controller.Total == 0:
             Controller.Sign = '1/'
             self.answer_text.setText(f'1/{Controller.Num}')
@@ -320,6 +424,10 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.answer_text.setText(f'1/{Controller.Num}')
 
     def decimal(self):
+        """
+
+        :return: Accounting for decimal
+        """
         if Controller.Sign == '':
             Controller.Num += '.'
             self.answer_text.setText(f'{Controller.Num}')
@@ -328,6 +436,10 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def negative(self):
+        """
+
+        :return: Accounting for negative numbers
+        """
         if Controller.Sign == '':
             Controller.Num += '-'
             self.answer_text.setText(f'{Controller.Num}')
@@ -336,6 +448,10 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.answer_text.setText(f'{Controller.Num} {Controller.Sign} {Controller.Num2}')
 
     def total(self):
+        """
+        Functionality to determine what sign is being used and compute the total
+        :return: The Total
+        """
         try:
             if Controller.Sign == '+':
                 Controller.Total = float(Controller.Num) + float(Controller.Num2)
