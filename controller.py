@@ -199,6 +199,7 @@ class Controller(QMainWindow, Ui_MainWindow):
             Controller.Sign = '+'
             self.answer_text.setText(f'{Controller.Num} +')
         else:
+            Controller.Sign = '+'
             Controller.Num = str(Controller.Total)
             self.answer_text.setText(f'{Controller.Num} +')
 
@@ -207,6 +208,7 @@ class Controller(QMainWindow, Ui_MainWindow):
             Controller.Sign = '-'
             self.answer_text.setText(f'{Controller.Num} -')
         else:
+            Controller.Sign = '-'
             Controller.Num = str(Controller.Total)
             self.answer_text.setText(f'{Controller.Num} -')
 
@@ -215,6 +217,7 @@ class Controller(QMainWindow, Ui_MainWindow):
             Controller.Sign = 'x'
             self.answer_text.setText(f'{Controller.Num} x')
         else:
+            Controller.Sign = 'x'
             Controller.Num = str(Controller.Total)
             self.answer_text.setText(f'{Controller.Num} x')
 
@@ -223,6 +226,7 @@ class Controller(QMainWindow, Ui_MainWindow):
             Controller.Sign = '/'
             self.answer_text.setText(f'{Controller.Num} /')
         else:
+            Controller.Sign = '/'
             Controller.Num = str(Controller.Total)
             self.answer_text.setText(f'{Controller.Num} /')
 
@@ -231,6 +235,7 @@ class Controller(QMainWindow, Ui_MainWindow):
             Controller.Sign = '//'
             self.answer_text.setText(f'{Controller.Num} //')
         else:
+            Controller.Sign = '//'
             Controller.Num = str(Controller.Total)
             self.answer_text.setText(f'{Controller.Num} //')
 
@@ -239,6 +244,7 @@ class Controller(QMainWindow, Ui_MainWindow):
             Controller.Sign = '%'
             self.answer_text.setText(f'{Controller.Num} %')
         else:
+            Controller.Sign = '%'
             Controller.Num = str(Controller.Total)
             self.answer_text.setText(f'{Controller.Num} %')
 
@@ -247,6 +253,7 @@ class Controller(QMainWindow, Ui_MainWindow):
             Controller.Sign = '^2'
             self.answer_text.setText(f'{Controller.Num} ^2')
         else:
+            Controller.Sign = '^2'
             Controller.Num = str(Controller.Total)
             self.answer_text.setText(f'{Controller.Num} ^2')
 
@@ -255,6 +262,7 @@ class Controller(QMainWindow, Ui_MainWindow):
             Controller.Sign = '^3'
             self.answer_text.setText(f'{Controller.Num} ^3')
         else:
+            Controller.Sign = '^3'
             Controller.Num = str(Controller.Total)
             self.answer_text.setText(f'{Controller.Num} ^3')
 
@@ -263,6 +271,7 @@ class Controller(QMainWindow, Ui_MainWindow):
             Controller.Sign = 'r'
             self.answer_text.setText(f'{Controller.Num} r')
         else:
+            Controller.Sign = 'r'
             Controller.Num = str(Controller.Total)
             self.answer_text.setText(f'{Controller.Num} r')
 
@@ -271,6 +280,7 @@ class Controller(QMainWindow, Ui_MainWindow):
             Controller.Sign = 'c'
             self.answer_text.setText(f'{Controller.Num} c')
         else:
+            Controller.Sign = 'c'
             Controller.Num = str(Controller.Total)
             self.answer_text.setText(f'{Controller.Num} c')
 
@@ -279,6 +289,7 @@ class Controller(QMainWindow, Ui_MainWindow):
             Controller.Sign = 'sin'
             self.answer_text.setText(f'sin({Controller.Num})')
         else:
+            Controller.Sign = 'sin'
             Controller.Num = str(Controller.Total)
             self.answer_text.setText(f'sin({Controller.Num})')
 
@@ -287,6 +298,7 @@ class Controller(QMainWindow, Ui_MainWindow):
             Controller.Sign = 'cosine'
             self.answer_text.setText(f'cos({Controller.Num})')
         else:
+            Controller.Sign = 'cosine'
             Controller.Num = str(Controller.Total)
             self.answer_text.setText(f'cos({Controller.Num})')
 
@@ -303,6 +315,7 @@ class Controller(QMainWindow, Ui_MainWindow):
             Controller.Sign = '1/'
             self.answer_text.setText(f'1/{Controller.Num}')
         else:
+            Controller.Sign = '1/'
             Controller.Num = str(Controller.Total)
             self.answer_text.setText(f'1/{Controller.Num}')
 
@@ -346,12 +359,13 @@ class Controller(QMainWindow, Ui_MainWindow):
                 Controller.Total = float(Controller.Num) ** (1/3)
             elif Controller.Sign == 'sin':
                 Controller.Total = sin(float(Controller.Num))
-            elif Controller.Sign == 'cos':
+            elif Controller.Sign == 'cosine':
                 Controller.Total = cos(float(Controller.Num))
             elif Controller.Sign == '1/':
                 Controller.Total = 1 / float(Controller.Num)
             self.answer_text.setText(f'{Controller.Total}')
             Controller.Num2 = ''
+            Controller.Sign = 'new'
         except ZeroDivisionError:
             self.answer_text.setText(f'Error cannot divide by zero')
 
